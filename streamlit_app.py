@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from io import BytesIO
 
 # Définition de la fonction de transformation
 def supprimer_colonnes_et_modifier_feuille(df):
@@ -34,7 +35,8 @@ uploaded_file = st.file_uploader("Uploader un fichier CSV", type=["csv"])
 
 if uploaded_file is not None:
     # Lecture du fichier CSV
-    df = pd.read_csv(uploaded_file)
+    bytes_data = uploaded_file.getvalue()
+    df = pd.read_csv(BytesIO(bytes_data))
 
     # Bouton pour déclencher la transformation et le téléchargement
     if st.button("Transformer et télécharger"):
