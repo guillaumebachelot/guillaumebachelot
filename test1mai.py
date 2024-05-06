@@ -21,7 +21,15 @@ columns_to_drop = [
     "Nb_emb_type_C"
 ]
 
-st.title("Importer et Transformer un Fichier Excel")
+st.title("Importer et Transformer un Fichier Excel Medifirst --> PowerBI")
+
+st.write(
+    """
+    Cette application permet de transformer un fichier Excel en supprimant certaines colonnes
+    pour protéger la confidentialité des données personnelles. Elle génère ensuite un nouveau
+    fichier Excel avec un nom de feuille modifié.
+    """
+)
 
 # Permettre à l'utilisateur de télécharger un fichier Excel
 uploaded_file = st.file_uploader("Téléchargez un fichier Excel", type=["xlsx"])
