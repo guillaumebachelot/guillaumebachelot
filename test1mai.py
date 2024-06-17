@@ -20,6 +20,13 @@ columns_to_drop = [
     "Pays_de_naissance_de_conjoint",
     "Nb_emb_type_C"
 ]
+# Colonnes et nouveaux noms
+columns_to_rename = {
+    "Technicien_a_J0_Injecteur": "Injecteur",
+    "Nb_cigarettes_Jour_du_conjoint": "Nb_cigarettes_Jour_de_conjoint",
+    "Nb_cigarettes_Jour_du_principal": "Nb_cigarettes_Jour_de_principal",
+    "Medecin_responsable_principal": "Nom_Medecin_Resp"
+}
 
 st.title("Importer et Transformer un Fichier Excel Medifirst --> PowerBI")
 
@@ -40,7 +47,10 @@ if uploaded_file:
 
     # Supprimer les colonnes spécifiées
     df_cleaned = df.drop(columns=columns_to_drop, errors='ignore')
-
+    
+    # Renommer les colonnes
+    df_cleaned.rename(columns=columns_to_rename, inplace=True)
+    
     # Convertir le DataFrame en Excel avec le nouveau nom de feuille
     excel_buffer = BytesIO()  # Créer un buffer en mémoire pour le fichier Excel
     with pd.ExcelWriter(excel_buffer, engine='openpyxl') as writer:
