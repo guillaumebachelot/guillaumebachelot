@@ -25,7 +25,8 @@ columns_to_rename = {
     "Technicien_a_J0_Injecteur": "Injecteur",
     "Nb_cigarettes_Jour_du_conjoint": "Nb_cigarettes_Jour_de_conjoint",
     "Nb_cigarettes_Jour_du_principal": "Nb_cigarettes_Jour_de_principal",
-    "Medecin_responsable_principal": "Nom_Medecin_Resp"
+    "Medecin_responsable_principal": "Nom_Medecin_Resp",
+    "Medecin_responsable_stim":"Medecin_responsable"
 }
 
 st.title("Importer et Transformer un Fichier Excel Medifirst --> PowerBI")
